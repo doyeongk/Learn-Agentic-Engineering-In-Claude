@@ -10,28 +10,28 @@ const SECTIONS = [
     title: 'Why GitHub Exists',
     modules: 3,
     desc: 'Version control, repositories, branches, and pull requests',
-    link: '/docs/01-why-github-exists/1.1-the-problem-github-solves',
+    link: '/docs/why-github-exists/1.1-the-problem-github-solves',
   },
   {
     num: '02',
     title: 'Meet Claude Code',
     modules: 4,
     desc: 'From chatbot to agent \u2014 tools, the agentic loop, and your first session',
-    link: '/docs/02-meet-claude-code/2.1-from-chat-to-agent',
+    link: '/docs/meet-claude-code/2.1-from-chat-to-agent',
   },
   {
     num: '03',
     title: 'Context Engineering',
     modules: 5,
     desc: 'CLAUDE.md, the attention budget, and why what Claude sees determines what Claude does',
-    link: '/docs/03-context-engineering/3.1-what-is-context',
+    link: '/docs/context-engineering/3.1-what-is-context',
   },
   {
     num: '04',
     title: 'Skills & Subagents',
     modules: 6,
     desc: 'Reusable knowledge, parallel workers, and the architecture of this very project',
-    link: '/docs/04-skills-and-subagents/4.1-what-are-skills',
+    link: '/docs/skills-and-subagents/4.1-what-are-skills',
   },
 ];
 
