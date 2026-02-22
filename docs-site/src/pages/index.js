@@ -117,11 +117,6 @@ export default function Home() {
                 </span>
               </h1>
 
-              <p style={{ fontSize: '1.08rem', lineHeight: 1.65, color: t.muted, maxWidth: 500, margin: '0 0 2rem' }}>
-                From GitHub basics to orchestrating AI agents. The skills teaching
-                you are real skills. The subagents that built this are real subagents.
-              </p>
-
               <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
                 <Link
                   to="/docs/intro"
