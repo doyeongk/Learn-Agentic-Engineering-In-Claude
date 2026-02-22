@@ -23,7 +23,7 @@ const SECTIONS = [
     num: '03',
     title: 'Context Engineering',
     modules: 5,
-    desc: 'CLAUDE.md, the attention budget, and why what Claude sees determines what Claude does',
+    desc: 'CLAUDE.md, the attention budget, and what Claude actually reads',
     link: '/docs/context-engineering/3.1-what-is-context',
   },
   {
@@ -39,17 +39,17 @@ const STEPS = [
   {
     icon: '\u276F',
     label: 'Learn by doing',
-    desc: 'Tutorials guide you step-by-step. Explanations build understanding. References are there when you need to look something up.',
+    desc: 'Tutorials, explanations, and references — each module uses the format that fits the concept.',
   },
   {
     icon: '\u2699',
     label: 'Learn inside the thing',
-    desc: 'This project is itself a working example of agentic engineering. The skills teaching you are real skills. The subagents are real subagents.',
+    desc: 'This project is a working example of agentic engineering. The skills and subagents teaching you are live artefacts, not illustrations.',
   },
   {
     icon: '\u2387',
     label: 'Pull back the curtain',
-    desc: "By the end, you trace the full architecture \u2014 and realise you\u2019ve been using every concept since the start.",
+    desc: 'By the end, you trace the full architecture and see how it was assembled.',
   },
 ];
 
@@ -119,8 +119,7 @@ export default function Home() {
 
               <p style={{ fontSize: '1.08rem', lineHeight: 1.65, color: t.muted, maxWidth: 500, margin: '0 0 2rem' }}>
                 From GitHub basics to orchestrating AI agents. The skills teaching
-                you are real skills. The subagents that built this curriculum were
-                real subagents. You learn the system by being inside it.
+                you are real skills. The subagents that built this are real subagents.
               </p>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
@@ -235,8 +234,7 @@ export default function Home() {
               Four sections, one thread
             </h2>
             <p style={{ fontSize: '1rem', lineHeight: 1.6, color: t.muted, maxWidth: 520, margin: '0 0 2rem' }}>
-              Each section builds on the last. By section four, you&apos;ll recognise
-              that every concept was at work around you from the start.
+              Each section builds on the last. The architecture reveals itself.
             </p>
           </div>
 
