@@ -6,8 +6,8 @@ const {themes: prismThemes} = require('prism-react-renderer');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Learn Anything',
-  tagline: 'Your personalised learning curriculum',
+  title: 'Learn Agentic Engineering',
+  tagline: 'A self-referential curriculum in Claude Code',
   favicon: 'img/favicon.ico',
 
   url: process.env.SITE_ORG && process.env.SITE_REPO
@@ -50,7 +50,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'Learn Anything',
+        title: 'Learn Agentic Engineering',
         items: [
           {
             type: 'docSidebar',
@@ -67,7 +67,7 @@ const config = {
       },
       footer: {
         style: 'light',
-        copyright: 'Built with Learn Anything In Claude',
+        copyright: 'Built with <a href="https://github.com/doyeongk/Learn-Anything-In-Claude">Learn Anything In Claude</a>',
       },
       prism: {
         theme: prismThemes.github,

@@ -1,35 +1,50 @@
 ---
-sidebar_position: 1
+sidebar_position: 0
 sidebar_label: Welcome
-title: Welcome
+title: Welcome to Learn Claude in Claude
 ---
 
-# Welcome to Learn Anything
+# Learn Claude in Claude
 
-A personalised learning environment powered by Claude Code. Clone the template repo, tell the AI what you want to learn, and it generates a full curriculum — then teaches it to you interactively, concept by concept.
+A curriculum that teaches you agentic engineering — from the very basics of GitHub to orchestrating AI agents with skills and subagents — all inside a system built using the exact techniques it teaches you.
 
-## Getting Started
+## What you'll learn
 
-1. Create your own copy from the [template repo](https://github.com/doyeongk/Learn-Anything-In-Claude) — click **Use this template** on GitHub, then clone your new repo:
-   ```bash
-   git clone https://github.com/YOUR-USERNAME/Learn-Anything-In-Claude.git
-   cd Learn-Anything-In-Claude
-   ```
-2. Open the project in Claude Code:
-   ```bash
-   claude
-   ```
-3. Run `/project:init` and describe what you want to learn
-4. The AI generates your personalised curriculum
-5. Run `/project:start` to begin your first lesson
+By the end of this curriculum, you'll be able to:
 
-## How It Works
+- **Understand GitHub** — what version control is, why it exists, and how to use repos, branches, and pull requests
+- **Use Claude Code** — not as a chatbot, but as an autonomous agent that reads files, edits code, and runs commands on your computer
+- **Engineer context** — write CLAUDE.md files that shape Claude's behaviour, manage the attention budget, and keep sessions effective
+- **Build skills and subagents** — create reusable knowledge packs and orchestrate parallel AI workers to tackle complex tasks
 
-Your curriculum is structured using the **Diataxis framework** — four types of content that serve different learning needs:
+## How to navigate
 
-- **Tutorials** — guided, hands-on learning experiences
-- **How-to guides** — practical steps for specific tasks
-- **Explanations** — understanding concepts and context
-- **Reference** — lookup information and specifications
+There are two ways to work through the modules:
 
-Progress is tracked automatically. Use `/project:progress` to check your status and `/project:review` for spaced repetition.
+### In Claude Code (recommended)
+
+Run `/project:start` to begin. Claude will guide you through each module interactively, checking your understanding as you go. Your progress is tracked automatically.
+
+Other commands:
+- `/project:progress` — see how far you've been
+- `/project:review` — spaced repetition for completed modules
+- `/project:help` — full command reference
+
+### On this site
+
+Browse the sidebar to read any module directly. The curriculum is structured in four sections, meant to be followed in order:
+
+1. **[Why GitHub Exists](./01-why-github-exists/1.1-the-problem-github-solves.md)** — version control fundamentals
+2. **[Meet Claude Code](./02-meet-claude-code/2.1-from-chat-to-agent.md)** — the agent paradigm
+3. **[Context Engineering](./03-context-engineering/3.1-what-is-context.md)** — managing what Claude sees
+4. **[Skills & Subagents](./04-skills-and-subagents/4.1-what-are-skills.md)** — extending and orchestrating Claude
+
+## The meta angle
+
+Here's the thing: this project is built using every concept it teaches. The CLAUDE.md shaping your sessions? That's context engineering. The skills delivering your lessons? Those are real skills. The subagents that researched your curriculum? Those were real subagents running in parallel.
+
+You'll discover this layer by layer — and by the final module, you'll trace the full architecture from end to end.
+
+## Start here
+
+**[Module 1.1: The Problem GitHub Solves](./01-why-github-exists/1.1-the-problem-github-solves.md)** — begin with why version control matters.

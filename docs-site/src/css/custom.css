@@ -1,93 +1,110 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=DM+Sans:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ─── Light theme ─── */
 
 :root {
-  --ifm-color-primary: #8B6914;
-  --ifm-color-primary-dark: #7D5E12;
-  --ifm-color-primary-darker: #765911;
-  --ifm-color-primary-darkest: #61490E;
-  --ifm-color-primary-light: #997416;
-  --ifm-color-primary-lighter: #A07A17;
-  --ifm-color-primary-lightest: #B58C1A;
+  --ifm-color-primary: #D97756;
+  --ifm-color-primary-dark: #D2653F;
+  --ifm-color-primary-darker: #CD5C35;
+  --ifm-color-primary-darkest: #A94A2B;
+  --ifm-color-primary-light: #E08D6F;
+  --ifm-color-primary-lighter: #E39579;
+  --ifm-color-primary-lightest: #ECB5A0;
 
   --ifm-background-color: #FAF7F2;
-  --ifm-font-color-base: #2D1B0E;
+  --ifm-font-color-base: #1B1B1F;
 
-  --ifm-heading-font-family: 'Source Serif 4', Georgia, serif;
+  --ifm-heading-font-family: 'DM Sans', system-ui, sans-serif;
   --ifm-font-family-base: 'DM Sans', system-ui, sans-serif;
+  --ifm-font-family-monospace: 'JetBrains Mono', monospace;
   --ifm-font-size-base: 17px;
   --ifm-line-height-base: 1.7;
 
-  --ifm-code-background: rgba(139, 105, 20, 0.06);
+  --ifm-code-background: rgba(217, 119, 86, 0.07);
   --ifm-code-border-radius: 4px;
   --ifm-code-padding-horizontal: 0.35rem;
   --ifm-code-padding-vertical: 0.15rem;
 
-  --docusaurus-highlighted-code-line-bg: rgba(139, 105, 20, 0.08);
+  --docusaurus-highlighted-code-line-bg: rgba(217, 119, 86, 0.08);
 }
+
+/* ─── Dark theme ─── */
 
 [data-theme='dark'] {
-  --ifm-background-color: #1A1A2E;
-  --ifm-font-color-base: #E8E4DF;
+  --ifm-background-color: #161618;
+  --ifm-font-color-base: #E5E2DD;
 
-  --ifm-color-primary: #D4A574;
-  --ifm-color-primary-dark: #CC9560;
-  --ifm-color-primary-darker: #C88D56;
-  --ifm-color-primary-darkest: #B87538;
-  --ifm-color-primary-light: #DCB588;
-  --ifm-color-primary-lighter: #E0BD92;
-  --ifm-color-primary-lightest: #ECCEAB;
+  --ifm-color-primary: #E89070;
+  --ifm-color-primary-dark: #E47A54;
+  --ifm-color-primary-darker: #E27046;
+  --ifm-color-primary-darkest: #D5522A;
+  --ifm-color-primary-light: #ECA68C;
+  --ifm-color-primary-lighter: #EEB09A;
+  --ifm-color-primary-lightest: #F6CFC0;
 
-  --ifm-code-background: rgba(212, 165, 116, 0.1);
-  --docusaurus-highlighted-code-line-bg: rgba(212, 165, 116, 0.12);
+  --ifm-code-background: rgba(232, 144, 112, 0.1);
+  --docusaurus-highlighted-code-line-bg: rgba(232, 144, 112, 0.12);
 }
 
-/* Headings */
+/* ─── Headings ─── */
+
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--ifm-heading-font-family);
   letter-spacing: -0.02em;
 }
 
-/* Doc content readability */
+/* ─── Doc content readability ─── */
+
 .markdown,
 article {
   max-width: 740px;
 }
 
-/* Navbar */
+/* ─── Navbar ─── */
+
 .navbar {
-  backdrop-filter: blur(8px);
-  background-color: rgba(250, 247, 242, 0.85);
-  border-bottom: 1px solid rgba(45, 27, 14, 0.06);
+  backdrop-filter: blur(10px);
+  background-color: rgba(250, 247, 242, 0.88);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  font-family: 'DM Sans', system-ui, sans-serif;
 }
 
 [data-theme='dark'] .navbar {
-  background-color: rgba(26, 26, 46, 0.85);
-  border-bottom: 1px solid rgba(232, 228, 223, 0.06);
+  background-color: rgba(22, 22, 24, 0.88);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Code blocks */
+.navbar__title {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* ─── Code blocks ─── */
+
 pre {
-  border: 1px solid rgba(139, 105, 20, 0.1);
+  border: 1px solid rgba(217, 119, 86, 0.1);
 }
 
 [data-theme='dark'] pre {
-  border: 1px solid rgba(212, 165, 116, 0.1);
-  background-color: #16162a !important;
+  border: 1px solid rgba(232, 144, 112, 0.1);
+  background-color: #111114 !important;
 }
 
 code {
+  font-family: var(--ifm-font-family-monospace);
   font-size: 0.9em;
 }
 
-/* Admonitions */
+/* ─── Admonitions ─── */
+
 .admonition {
   border-radius: 6px;
   border-left-width: 4px;
 }
 
 .admonition-note {
-  --ifm-color-info: #8B6914;
-  background-color: rgba(139, 105, 20, 0.05);
+  --ifm-color-info: #D97756;
+  background-color: rgba(217, 119, 86, 0.05);
 }
 
 .admonition-tip {
@@ -96,8 +113,8 @@ code {
 }
 
 .admonition-caution {
-  --ifm-color-warning: #A67C2E;
-  background-color: rgba(166, 124, 46, 0.05);
+  --ifm-color-warning: #C08830;
+  background-color: rgba(192, 136, 48, 0.05);
 }
 
 .admonition-danger {
@@ -106,7 +123,7 @@ code {
 }
 
 [data-theme='dark'] .admonition-note {
-  background-color: rgba(212, 165, 116, 0.06);
+  background-color: rgba(232, 144, 112, 0.06);
 }
 
 [data-theme='dark'] .admonition-tip {
@@ -121,27 +138,30 @@ code {
   background-color: rgba(186, 91, 91, 0.08);
 }
 
-/* Sidebar */
+/* ─── Sidebar ─── */
+
 .menu__link {
   font-size: 0.92rem;
   border-radius: 4px;
 }
 
 .menu__link--active:not(.menu__link--sublist) {
-  background-color: rgba(139, 105, 20, 0.08);
+  background-color: rgba(217, 119, 86, 0.08);
 }
 
 [data-theme='dark'] .menu__link--active:not(.menu__link--sublist) {
-  background-color: rgba(212, 165, 116, 0.1);
+  background-color: rgba(232, 144, 112, 0.1);
 }
 
-/* Footer */
+/* ─── Footer ─── */
+
 .footer {
   font-size: 0.85rem;
   opacity: 0.7;
 }
 
-/* Table styling */
+/* ─── Tables ─── */
+
 table {
   font-size: 0.93rem;
 }
@@ -151,52 +171,21 @@ th {
   font-weight: 600;
 }
 
-/* Blockquote styling */
+/* ─── Blockquotes ─── */
+
 blockquote {
   border-left-color: var(--ifm-color-primary);
-  background-color: rgba(139, 105, 20, 0.03);
+  background-color: rgba(217, 119, 86, 0.04);
   border-radius: 0 6px 6px 0;
   padding: 1rem 1.25rem;
 }
 
 [data-theme='dark'] blockquote {
-  background-color: rgba(212, 165, 116, 0.04);
+  background-color: rgba(232, 144, 112, 0.04);
 }
 
-/* Search input */
+/* ─── Search ─── */
+
 .navbar__search-input {
   border-radius: 6px;
-}
-
-/* Homepage responsive layout */
-.home-inner {
-  max-width: 1100px;
-  width: 100%;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-  gap: 3rem;
-  position: relative;
-  z-index: 1;
-}
-
-@media (max-width: 768px) {
-  .home-inner {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .home-container {
-    padding: 2rem 1.25rem !important;
-    min-height: auto !important;
-  }
-
-  .home-heading {
-    font-size: clamp(2rem, 8vw, 2.8rem) !important;
-  }
-
-  .home-description {
-    font-size: 1rem !important;
-    margin-bottom: 2rem !important;
-  }
 }

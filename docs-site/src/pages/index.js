@@ -1,228 +1,404 @@
 import React from 'react';
 import Head from '@docusaurus/Head';
+import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
+import styles from './index.module.css';
 
-const FONTS_CSS = `
-  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=DM+Sans:wght@400;500;700&display=swap');
-`;
+const SECTIONS = [
+  {
+    num: '01',
+    title: 'Why GitHub Exists',
+    modules: 3,
+    desc: 'Version control, repositories, branches, and pull requests',
+    link: '/docs/01-why-github-exists/1.1-the-problem-github-solves',
+  },
+  {
+    num: '02',
+    title: 'Meet Claude Code',
+    modules: 4,
+    desc: 'From chatbot to agent \u2014 tools, the agentic loop, and your first session',
+    link: '/docs/02-meet-claude-code/2.1-from-chat-to-agent',
+  },
+  {
+    num: '03',
+    title: 'Context Engineering',
+    modules: 5,
+    desc: 'CLAUDE.md, the attention budget, and why what Claude sees determines what Claude does',
+    link: '/docs/03-context-engineering/3.1-what-is-context',
+  },
+  {
+    num: '04',
+    title: 'Skills & Subagents',
+    modules: 6,
+    desc: 'Reusable knowledge, parallel workers, and the architecture of this very project',
+    link: '/docs/04-skills-and-subagents/4.1-what-are-skills',
+  },
+];
 
-const styles = {
-  container: {
-    minHeight: '100vh',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    padding: '4rem 2rem',
-    fontFamily: "'DM Sans', system-ui, sans-serif",
-    position: 'relative',
-    overflow: 'hidden',
+const STEPS = [
+  {
+    icon: '\u276F',
+    label: 'Learn by doing',
+    desc: 'Tutorials guide you step-by-step. Explanations build understanding. References are there when you need to look something up.',
   },
-  light: {
-    background: '#FAF7F2',
-    color: '#2D1B0E',
+  {
+    icon: '\u2699',
+    label: 'Learn inside the thing',
+    desc: 'This project is itself a working example of agentic engineering. The skills teaching you are real skills. The subagents are real subagents.',
   },
-  dark: {
-    background: '#1A1A2E',
-    color: '#E8E4DF',
+  {
+    icon: '\u2387',
+    label: 'Pull back the curtain',
+    desc: "By the end, you trace the full architecture \u2014 and realise you\u2019ve been using every concept since the start.",
   },
-  grain: {
-    position: 'absolute',
-    inset: 0,
-    opacity: 0.03,
-    backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-    pointerEvents: 'none',
-  },
-  inner: {
-    /* Layout handled by .home-inner CSS class for responsive breakpoints */
-  },
-  eyebrow: {
-    fontFamily: "'DM Sans', system-ui, sans-serif",
-    fontSize: '0.8rem',
-    fontWeight: 500,
-    letterSpacing: '0.15em',
-    textTransform: 'uppercase',
-    marginBottom: '1rem',
-    opacity: 0.6,
-  },
-  heading: {
-    fontFamily: "'Source Serif 4', Georgia, serif",
-    fontSize: 'clamp(2.8rem, 6vw, 5rem)',
-    fontWeight: 700,
-    lineHeight: 1.05,
-    letterSpacing: '-0.03em',
-    margin: '0 0 1.5rem 0',
-  },
-  accent: {
-    light: { color: '#8B6914' },
-    dark: { color: '#D4A574' },
-  },
-  description: {
-    fontSize: '1.15rem',
-    lineHeight: 1.7,
-    maxWidth: '540px',
-    margin: '0 0 2.5rem 0',
-    opacity: 0.8,
-  },
-  cta: {
-    display: 'inline-flex',
-    alignItems: 'center',
-    gap: '0.5rem',
-    padding: '0.9rem 2rem',
-    borderRadius: '6px',
-    fontSize: '1rem',
-    fontWeight: 600,
-    fontFamily: "'DM Sans', system-ui, sans-serif",
-    textDecoration: 'none',
-    transition: 'transform 0.15s ease, box-shadow 0.15s ease',
-  },
-  ctaLight: {
-    background: '#2D1B0E',
-    color: '#FAF7F2',
-  },
-  ctaDark: {
-    background: '#D4A574',
-    color: '#1A1A2E',
-  },
-  aside: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '1rem',
-    paddingTop: '1rem',
-  },
-  card: {
-    padding: '1.25rem 1.5rem',
-    borderRadius: '8px',
-    border: '1px solid',
-    transition: 'transform 0.15s ease',
-  },
-  cardLight: {
-    borderColor: 'rgba(45, 27, 14, 0.1)',
-    background: 'rgba(255, 255, 255, 0.5)',
-  },
-  cardDark: {
-    borderColor: 'rgba(232, 228, 223, 0.08)',
-    background: 'rgba(255, 255, 255, 0.03)',
-  },
-  cardTitle: {
-    fontFamily: "'Source Serif 4', Georgia, serif",
-    fontSize: '1.1rem',
-    fontWeight: 600,
-    margin: '0 0 0.35rem 0',
-    letterSpacing: '-0.01em',
-  },
-  cardDesc: {
-    fontSize: '0.9rem',
-    margin: 0,
-    opacity: 0.65,
-    lineHeight: 1.5,
-  },
-  decorLine: {
-    width: '60px',
-    height: '3px',
-    marginBottom: '2rem',
-    borderRadius: '2px',
-  },
-  decorLineLight: {
-    background: '#D4A574',
-  },
-  decorLineDark: {
-    background: '#D4A574',
-    opacity: 0.6,
-  },
-};
-
-const DIATAXIS = [
-  { title: 'Tutorials', desc: 'Guided, hands-on learning experiences' },
-  { title: 'How-to Guides', desc: 'Practical steps for specific tasks' },
-  { title: 'Explanations', desc: 'Understanding concepts and context' },
-  { title: 'Reference', desc: 'Lookup information and specifications' },
 ];
 
 export default function Home() {
   const [isDark, setIsDark] = React.useState(false);
 
   React.useEffect(() => {
-    const mql = window.matchMedia('(prefers-color-scheme: dark)');
-    setIsDark(mql.matches);
-
+    const html = document.documentElement;
+    setIsDark(html.getAttribute('data-theme') === 'dark');
     const observer = new MutationObserver(() => {
-      setIsDark(document.documentElement.getAttribute('data-theme') === 'dark');
+      setIsDark(html.getAttribute('data-theme') === 'dark');
     });
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['data-theme'],
-    });
-
+    observer.observe(html, { attributes: true, attributeFilter: ['data-theme'] });
     return () => observer.disconnect();
   }, []);
 
-  const mode = isDark ? 'dark' : 'light';
+  const t = isDark ? dark : light;
 
   return (
-    <>
+    <Layout
+      title="Learn Agentic Engineering in Claude Code"
+      description="From GitHub basics to agentic engineering \u2014 a self-referential curriculum taught by the system it teaches you to build."
+    >
       <Head>
-        <style>{FONTS_CSS}</style>
+        <meta name="theme-color" content={isDark ? '#161618' : '#FAF7F2'} />
       </Head>
-      <main
-        className="home-container"
-        style={{
-          ...styles.container,
-          ...styles[mode],
-        }}
-      >
-        <div style={styles.grain} />
-        <div
-          className="home-inner"
-          style={styles.inner}
-        >
-          <div>
-            <div style={styles.eyebrow}>Claude Code Learning Environment</div>
+
+      <main style={{ background: t.bg, color: t.text, fontFamily: "'DM Sans', system-ui, sans-serif" }}>
+
+        {/* ═══ Hero ═══ */}
+        <section style={{ maxWidth: 1120, margin: '0 auto', padding: 'clamp(2.5rem, 6vw, 5rem) 1.5rem clamp(2rem, 5vw, 4rem)' }}>
+          <div
+            className={styles.heroInner}
+            style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 'clamp(2rem, 4vw, 3rem)', alignItems: 'center' }}
+          >
+            {/* Text */}
+            <div className={styles.fadeIn}>
+              <p style={{
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: '0.73rem',
+                letterSpacing: '0.1em',
+                color: t.accent,
+                marginBottom: '1.25rem',
+                textTransform: 'uppercase',
+              }}>
+                A self-referential curriculum
+              </p>
+
+              <h1 style={{
+                fontSize: 'clamp(2.4rem, 5.5vw, 4rem)',
+                fontWeight: 700,
+                lineHeight: 1.08,
+                letterSpacing: '-0.035em',
+                margin: '0 0 1.25rem',
+              }}>
+                Learn Agentic<br />
+                Engineering{' '}
+                <span style={{
+                  fontFamily: "'JetBrains Mono', monospace",
+                  fontWeight: 400,
+                  color: t.accent,
+                  fontSize: '0.82em',
+                }}>
+                  in&nbsp;Claude
+                </span>
+              </h1>
+
+              <p style={{ fontSize: '1.08rem', lineHeight: 1.65, color: t.muted, maxWidth: 500, margin: '0 0 2rem' }}>
+                From GitHub basics to orchestrating AI agents. The skills teaching
+                you are real skills. The subagents that built this curriculum were
+                real subagents. You learn the system by being inside it.
+              </p>
+
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem', flexWrap: 'wrap' }}>
+                <Link
+                  to="/docs/intro"
+                  className={styles.cta}
+                  style={{
+                    display: 'inline-block',
+                    padding: '0.75rem 1.5rem',
+                    borderRadius: 8,
+                    background: t.accent,
+                    color: t.ctaText,
+                    fontWeight: 700,
+                    fontSize: '0.9rem',
+                    textDecoration: 'none',
+                  }}
+                >
+                  Start the curriculum
+                </Link>
+                <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '0.78rem', color: t.muted }}>
+                  18 modules &middot; ~6 hrs
+                </span>
+              </div>
+            </div>
+
+            {/* Terminal mock-up */}
             <div
+              className={`${styles.fadeIn} ${styles.fadeIn2}`}
               style={{
-                ...styles.decorLine,
-                ...(isDark ? styles.decorLineDark : styles.decorLineLight),
-              }}
-            />
-            <h1 className="home-heading" style={styles.heading}>
-              Learn{' '}
-              <span style={styles.accent[mode]}>anything</span>
-              <br />
-              at your own pace
-            </h1>
-            <p className="home-description" style={styles.description}>
-              A personalised curriculum generated by AI, structured using the
-              Diataxis framework. Tutorials, explanations, how-to guides, and
-              reference material — all tailored to what you want to learn.
-            </p>
-            <Link
-              to="/docs/intro"
-              style={{
-                ...styles.cta,
-                ...(isDark ? styles.ctaDark : styles.ctaLight),
+                background: t.termBg,
+                borderRadius: 12,
+                border: `1px solid ${t.termBorder}`,
+                overflow: 'hidden',
               }}
             >
-              Start learning
-            </Link>
+              {/* Chrome bar */}
+              <div style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: 6,
+                padding: '0.75rem 1.25rem',
+                borderBottom: `1px solid ${t.termBorder}`,
+              }}>
+                <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#FF5F57', display: 'inline-block' }} />
+                <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#FEBC2E', display: 'inline-block' }} />
+                <span style={{ width: 10, height: 10, borderRadius: '50%', background: '#28C840', display: 'inline-block' }} />
+                <span style={{
+                  marginLeft: 'auto',
+                  fontFamily: "'JetBrains Mono', monospace",
+                  fontSize: '0.68rem',
+                  color: t.termMuted,
+                }}>
+                  ~/learn-agentic-engineering
+                </span>
+              </div>
+
+              {/* Terminal body */}
+              <div style={{
+                padding: '1rem 1.25rem 1.25rem',
+                fontFamily: "'JetBrains Mono', monospace",
+                fontSize: '0.76rem',
+                lineHeight: 1.7,
+              }}>
+                {/* Claude Code banner */}
+                <div style={{ color: t.termMuted }}>{'╭─────────────────────────────────╮'}</div>
+                <div style={{ color: t.termMuted }}>
+                  {'│ '}<span style={{ color: t.termAccent }}>✻</span>
+                  <span style={{ color: t.termTextBright }}>{' Claude Code'}</span>
+                  {'                   │'}
+                </div>
+                <div style={{ color: t.termMuted, marginBottom: '0.75rem' }}>{'╰─────────────────────────────────╯'}</div>
+
+                {/* Prompt and output */}
+                <div>
+                  <span style={{ color: t.termAccent }}>{'❯'}</span>
+                  <span style={{ color: t.termText }}>{' /project:start'}</span>
+                </div>
+                <div style={{ height: '0.4rem' }} />
+                <div>
+                  <span style={{ color: t.termGreen }}>{'●'}</span>
+                  <span style={{ color: t.termText }}>{' Module 1.1 — '}</span>
+                  <span style={{ color: t.termTextBright }}>The Problem GitHub Solves</span>
+                </div>
+                <div style={{ height: '0.3rem' }} />
+                <div style={{ color: t.termMuted, paddingLeft: '0.9rem' }}>Have you ever worked on a document,</div>
+                <div style={{ color: t.termMuted, paddingLeft: '0.9rem' }}>made changes, and then wished you</div>
+                <div style={{ color: t.termMuted, paddingLeft: '0.9rem' }}>could go back to a previous version?</div>
+                <div style={{ height: '0.3rem' }} />
+                <div style={{ color: t.termMuted, paddingLeft: '0.9rem' }}>
+                  {"That's the problem version control solves..."}
+                  <span className={styles.cursor} style={{ color: t.termAccent, marginLeft: 2 }}>{'\u258C'}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ═══ Curriculum ═══ */}
+        <section style={{ maxWidth: 1120, margin: '0 auto', padding: '0 1.5rem 4rem' }}>
+          <div className={styles.fadeIn}>
+            <p style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: '0.73rem',
+              letterSpacing: '0.1em',
+              color: t.accent,
+              marginBottom: '0.5rem',
+              textTransform: 'uppercase',
+            }}>
+              The curriculum
+            </p>
+            <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', fontWeight: 700, letterSpacing: '-0.025em', margin: '0 0 0.5rem' }}>
+              Four sections, one thread
+            </h2>
+            <p style={{ fontSize: '1rem', lineHeight: 1.6, color: t.muted, maxWidth: 520, margin: '0 0 2rem' }}>
+              Each section builds on the last. By section four, you&apos;ll recognise
+              that every concept was at work around you from the start.
+            </p>
           </div>
 
-          <div style={styles.aside}>
-            {DIATAXIS.map((item) => (
-              <div
-                key={item.title}
+          <div
+            className={styles.curriculumGrid}
+            style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '0.75rem' }}
+          >
+            {SECTIONS.map((sec) => (
+              <Link
+                key={sec.num}
+                to={sec.link}
+                className={`${styles.card} ${styles.fadeIn}`}
                 style={{
-                  ...styles.card,
-                  ...(isDark ? styles.cardDark : styles.cardLight),
+                  display: 'block',
+                  textDecoration: 'none',
+                  color: 'inherit',
+                  padding: '1.25rem 1.5rem',
+                  borderRadius: 8,
+                  background: t.surface,
+                  borderTop: `1px solid ${t.border}`,
+                  borderRight: `1px solid ${t.border}`,
+                  borderBottom: `1px solid ${t.border}`,
+                  borderLeft: `3px solid ${t.accent}`,
                 }}
               >
-                <p style={{ ...styles.cardTitle, ...styles.accent[mode] }}>
-                  {item.title}
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.75rem', marginBottom: '0.3rem' }}>
+                  <span style={{
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: '0.7rem',
+                    color: t.accent,
+                  }}>
+                    {sec.num}
+                  </span>
+                  <h3 style={{ fontSize: '1.05rem', fontWeight: 700, margin: 0, letterSpacing: '-0.01em' }}>
+                    {sec.title}
+                  </h3>
+                  <span style={{
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: '0.7rem',
+                    color: t.muted,
+                    marginLeft: 'auto',
+                    whiteSpace: 'nowrap',
+                  }}>
+                    {sec.modules} modules
+                  </span>
+                </div>
+                <p style={{ fontSize: '0.88rem', lineHeight: 1.5, color: t.muted, margin: 0 }}>
+                  {sec.desc}
                 </p>
-                <p style={styles.cardDesc}>{item.desc}</p>
-              </div>
+              </Link>
             ))}
           </div>
-        </div>
+        </section>
+
+        {/* ═══ How it works ═══ */}
+        <section style={{ background: t.surface, padding: '4rem 1.5rem' }}>
+          <div style={{ maxWidth: 1120, margin: '0 auto' }}>
+            <p style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: '0.73rem',
+              letterSpacing: '0.1em',
+              color: t.accent,
+              marginBottom: '0.5rem',
+              textTransform: 'uppercase',
+            }}>
+              How it works
+            </p>
+            <h2 style={{ fontSize: 'clamp(1.5rem, 3vw, 2.2rem)', fontWeight: 700, letterSpacing: '-0.025em', margin: '0 0 2.5rem' }}>
+              Learn, then see the machinery
+            </h2>
+
+            <div
+              className={styles.stepsGrid}
+              style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '2rem' }}
+            >
+              {STEPS.map((step) => (
+                <div key={step.label}>
+                  <div style={{
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: '1.2rem',
+                    color: t.accent,
+                    marginBottom: '0.5rem',
+                  }}>
+                    {step.icon}
+                  </div>
+                  <h3 style={{ fontSize: '1.05rem', fontWeight: 700, margin: '0 0 0.4rem', letterSpacing: '-0.01em' }}>
+                    {step.label}
+                  </h3>
+                  <p style={{ fontSize: '0.9rem', lineHeight: 1.6, color: t.muted, margin: 0 }}>
+                    {step.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ═══ Footer CTA ═══ */}
+        <section style={{ maxWidth: 1120, margin: '0 auto', padding: '4rem 1.5rem 5rem', textAlign: 'center' }}>
+          <div style={{
+            fontFamily: "'JetBrains Mono', monospace",
+            fontSize: '1.1rem',
+            color: t.muted,
+            marginBottom: '1.5rem',
+          }}>
+            <span style={{ color: t.accent }}>❯</span>{' '}
+            <span style={{ color: t.text }}>/project:start</span>
+          </div>
+          <Link
+            to="/docs/intro"
+            className={styles.cta}
+            style={{
+              display: 'inline-block',
+              padding: '0.75rem 1.5rem',
+              borderRadius: 8,
+              background: t.accent,
+              color: t.ctaText,
+              fontWeight: 700,
+              fontSize: '0.9rem',
+              textDecoration: 'none',
+            }}
+          >
+            Begin module 1.1
+          </Link>
+        </section>
       </main>
-    </>
+    </Layout>
   );
 }
+
+/* ─── Colour tokens ─── */
+
+const light = {
+  bg: '#FAF7F2',
+  text: '#1B1B1F',
+  muted: '#6F6F78',
+  accent: '#D97756',
+  surface: '#F0ECE4',
+  border: 'rgba(0, 0, 0, 0.07)',
+  ctaText: '#FFFFFF',
+  termBg: '#1B1B22',
+  termText: '#C0C0C8',
+  termTextBright: '#E8E8EE',
+  termMuted: '#606068',
+  termAccent: '#D97756',
+  termGreen: '#5CB270',
+  termBorder: 'rgba(255, 255, 255, 0.06)',
+};
+
+const dark = {
+  bg: '#161618',
+  text: '#E5E2DD',
+  muted: '#8A8A93',
+  accent: '#E89070',
+  surface: '#1E1E23',
+  border: 'rgba(255, 255, 255, 0.07)',
+  ctaText: '#161618',
+  termBg: '#111114',
+  termText: '#A0A0A8',
+  termTextBright: '#D0D0D8',
+  termMuted: '#555560',
+  termAccent: '#E89070',
+  termGreen: '#6BC47E',
+  termBorder: 'rgba(255, 255, 255, 0.04)',
+};

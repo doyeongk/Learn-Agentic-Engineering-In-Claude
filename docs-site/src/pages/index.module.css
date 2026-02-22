@@ -1,0 +1,90 @@
+/* ─── Animations ─── */
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cursor {
+  display: inline-block;
+  animation: cursorBlink 1.2s step-end infinite;
+}
+
+.fadeIn {
+  animation: fadeInUp 0.45s ease both;
+}
+
+.fadeIn2 {
+  animation-delay: 0.12s;
+}
+
+.fadeIn3 {
+  animation-delay: 0.24s;
+}
+
+/* ─── Interactive states ─── */
+
+.card {
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.cta {
+  transition: transform 0.1s ease, opacity 0.1s ease;
+}
+
+.cta:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+
+/* ─── Responsive ─── */
+
+@media (min-width: 768px) {
+  .heroInner {
+    grid-template-columns: 1.2fr 1fr !important;
+  }
+
+  .curriculumGrid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .stepsGrid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+/* ─── Reduced motion ─── */
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor {
+    animation: none;
+    opacity: 1;
+  }
+
+  .fadeIn {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .card,
+  .cta {
+    transition: none;
+  }
+}
