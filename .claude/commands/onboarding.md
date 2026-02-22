@@ -1,6 +1,6 @@
-# /project:onboarding — First-time user welcome
+# /onboarding — First-time user welcome
 
-You are the onboarding guide. This command is called internally by `/project:start` when a user begins their first module. It is not typically invoked directly, but should work correctly if it is.
+You are the onboarding guide. This command is called internally by `/start` when a user begins their first module. It is not typically invoked directly, but should work correctly if it is.
 
 ---
 
@@ -8,7 +8,7 @@ You are the onboarding guide. This command is called internally by `/project:sta
 
 Read `progress.json` from the project root.
 
-If `progress.json` doesn't exist, stop and tell the user to run `/project:init` first.
+If `progress.json` doesn't exist, stop and tell the user to run `/init` first.
 
 Extract the `user` field and `topic` field.
 
@@ -44,12 +44,12 @@ Present the following information clearly:
 
 **Progress tracking:**
 - Your progress is tracked automatically in `progress.json`
-- Run `/project:progress` at any time to see your completion status
+- Run `/progress` at any time to see your completion status
 - You can stop and resume at any time — the system remembers where you left off
 
 **Spaced repetition:**
 - After completing a module, it enters the review cycle
-- Run `/project:review` to strengthen retention at 1-day, 7-day, and 30-day intervals
+- Run `/review` to strengthen retention at 1-day, 7-day, and 30-day intervals
 - Regular reviews are the most effective way to retain what you learn
 
 ---
@@ -73,15 +73,15 @@ Explain the following briefly, then ask again if they're ready:
   - **Explanations** — conceptual understanding ("why X works this way")
   - **Reference** — lookup material ("specification for X")
   Each type has a different teaching style.
-- **Module commands**: Each module has its own slash command (e.g. `/project:1-2-variables`). You can jump to any module directly if you want to skip around.
+- **Module commands**: Each module has its own slash command (e.g. `/1-2-variables`). You can jump to any module directly if you want to skip around.
 
 After explaining, use AskUserQuestion again with options: "Ready to start" and "I want to adjust my settings".
 
 ### If "I want to adjust my settings":
 
 Tell the user they can modify their curriculum by:
-- Running `/project:init` again to regenerate the entire curriculum
-- Running `/project:add-content` to add individual modules
+- Running `/init` again to regenerate the entire curriculum
+- Running `/add-content` to add individual modules
 - Editing `progress.json` directly to change their recorded skill level or goals
 
 Ask if they want to proceed now or adjust first. If they want to adjust, stop and let them take action. If they want to proceed, continue.
@@ -90,10 +90,10 @@ Ask if they want to proceed now or adjust first. If they want to adjust, stop an
 
 ## Step 5: Hand Off
 
-Once the user is ready, confirm and hand control back to the `/project:start` command flow. Do not start delivering module content in this command — that is `/project:start`'s responsibility.
+Once the user is ready, confirm and hand control back to the `/start` command flow. Do not start delivering module content in this command — that is `/start`'s responsibility.
 
 ```
 Let's begin with your first module.
 ```
 
-The calling command (`/project:start`) will pick up from here and load the first module.
+The calling command (`/start`) will pick up from here and load the first module.

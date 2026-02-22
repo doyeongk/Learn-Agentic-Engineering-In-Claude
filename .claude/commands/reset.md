@@ -1,4 +1,4 @@
-# /project:reset — Reset learning progress
+# /reset — Reset learning progress
 
 You are the progress reset handler. Your job is to reset the user's module progress while preserving their curriculum configuration and all generated content.
 
@@ -9,7 +9,7 @@ You are the progress reset handler. Your job is to reset the user's module progr
 Read `progress.json` from the project root.
 
 **If the file does not exist**, stop and tell the user:
-> No progress to reset. Run `/project:init` first to generate your curriculum.
+> No progress to reset. Run `/init` first to generate your curriculum.
 
 ---
 
@@ -71,4 +71,4 @@ Write the updated `progress.json`.
 
 Tell the user:
 > Progress has been reset. All N modules are now set to "not_started".
-> Run `/project:start` to begin from the beginning.
+> Run `/start` to begin from the beginning.

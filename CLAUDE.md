@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This is a personalised learning environment powered by Claude Code. Users clone this repo, run `/project:init`, describe what they want to learn, and the AI generates a full curriculum. They then run `/project:start` and learn interactively — concept by concept, with checkpoints, exercises, progress tracking, and spaced repetition review.
+This is a personalised learning environment powered by Claude Code. Users clone this repo, run `/init`, describe what they want to learn, and the AI generates a full curriculum. They then run `/start` and learn interactively — concept by concept, with checkpoints, exercises, progress tracking, and spaced repetition review.
 
 The same markdown files used during delivery are rendered as a browsable Docusaurus site.
 
@@ -13,7 +13,7 @@ The same markdown files used during delivery are rendered as a browsable Docusau
 ├── CLAUDE.md                          # This file — always loaded
 ├── progress.json                      # User state (gitignored)
 ├── .claude/
-│   ├── commands/                      # Slash commands (/project:name)
+│   ├── commands/                      # Slash commands (/name)
 │   │   ├── init.md                    # Generate curriculum
 │   │   ├── start.md                   # Begin/resume training
 │   │   ├── progress.md               # Show completion status
@@ -34,7 +34,7 @@ The same markdown files used during delivery are rendered as a browsable Docusau
 
 ## How Commands Work
 
-Commands are in `.claude/commands/` and invoked as `/project:command-name`. They are markdown prompt templates that Claude Code follows as instructions. Commands reference skills by reading files from `.claude/skills/`.
+Commands are in `.claude/commands/` and invoked as `/command-name`. They are markdown prompt templates that Claude Code follows as instructions. Commands reference skills by reading files from `.claude/skills/`.
 
 ## How Skills Work
 
@@ -42,7 +42,7 @@ Skills are reference documents in `.claude/skills/`. Each skill directory contai
 
 ## Progress Tracking
 
-`progress.json` tracks the user's state. It is created by `/project:init` and updated by the training delivery engine. Schema:
+`progress.json` tracks the user's state. It is created by `/init` and updated by the training delivery engine. Schema:
 
 - `version`: always 1
 - `user`: learner's name
@@ -74,7 +74,7 @@ When executing commands, use Claude Code tools:
 
 ## Content Generation
 
-When generating module content during `/project:init`:
+When generating module content during `/init`:
 
 1. Read the appropriate diataxis template from `docs-site/docs/_*-template.md`
 2. Read the diataxis skill for writing guidelines

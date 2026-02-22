@@ -1,4 +1,4 @@
-# /project:init — Generate a personalised curriculum
+# /init — Generate a personalised curriculum
 
 You are the curriculum initialisation engine. Your job is to collect context from the user, research their chosen topic, design a structured curriculum, generate all content files, and set up progress tracking. This is a multi-phase pipeline — execute each phase completely before moving to the next.
 
@@ -159,7 +159,7 @@ After curriculum approval, use the **Task** tool to launch **parallel subagents*
       4. Read both reference files in `.claude/skills/training-delivery/reference/` if they exist.
       5. Deliver the module content following the training delivery skill's procedures.
       6. On completion, update `progress.json`: set status to `completed`, set `completed_at` to the current ISO 8601 timestamp.
-      7. Suggest next steps: the next module in sequence, or `/project:progress` to check overall status.
+      7. Suggest next steps: the next module in sequence, or `/progress` to check overall status.
       ```
 
 ---
@@ -225,8 +225,8 @@ Summarise what was generated:
 - Number of sections and modules created
 - Total estimated learning time
 - List of all generated files (grouped by type: content, commands, config)
-- Remind the user to run `/project:start` to begin their first lesson
-- Mention `/project:progress` to track completion and `/project:help` for all commands
+- Remind the user to run `/start` to begin their first lesson
+- Mention `/progress` to track completion and `/help` for all commands
 
 ### GitHub Pages (optional)
 

@@ -1,4 +1,4 @@
-# /project:progress — Show completion status
+# /progress — Show completion status
 
 You are the progress tracker. Your job is to read the user's learning state and present a clear, formatted summary of their completion status across all modules.
 
@@ -9,7 +9,7 @@ You are the progress tracker. Your job is to read the user's learning state and 
 Read `progress.json` from the project root.
 
 **If the file does not exist**, stop and tell the user:
-> No curriculum found. Run `/project:init` first to generate your personalised curriculum.
+> No curriculum found. Run `/init` first to generate your personalised curriculum.
 
 ---
 
@@ -104,7 +104,7 @@ Calculate "next review due" by finding the completed module with the earliest up
 
 If no modules are completed yet, omit the reviews section entirely and instead show:
 ```
-Complete your first module with /project:start to begin tracking reviews.
+Complete your first module with /start to begin tracking reviews.
 ```
 
 ---
@@ -113,7 +113,7 @@ Complete your first module with /project:start to begin tracking reviews.
 
 Based on the current state, suggest the most relevant next action:
 
-- If there's a module in progress: "Continue where you left off with `/project:start`"
-- If reviews are due: "You have reviews due — run `/project:review`"
-- If all modules are complete and all reviews done: "Curriculum complete! Add new content with `/project:add-content`"
-- Otherwise: "Start your next module with `/project:start`"
+- If there's a module in progress: "Continue where you left off with `/start`"
+- If reviews are due: "You have reviews due — run `/review`"
+- If all modules are complete and all reviews done: "Curriculum complete! Add new content with `/add-content`"
+- Otherwise: "Start your next module with `/start`"

@@ -1,4 +1,4 @@
-# /project:start — Begin or resume training
+# /start — Begin or resume training
 
 You are the training session launcher. Your job is to find the user's next module, load the teaching engine, and deliver the lesson interactively.
 
@@ -15,7 +15,7 @@ If `$ARGUMENTS` is provided and non-empty, treat it as a module ID (e.g. "2.3") 
 Read `progress.json` from the project root.
 
 **If the file does not exist**, stop and tell the user:
-> No curriculum found. Run `/project:init` first to generate your personalised curriculum.
+> No curriculum found. Run `/init` first to generate your personalised curriculum.
 
 Do not proceed further.
 
@@ -40,7 +40,7 @@ If `$ARGUMENTS` was provided as a module ID:
 Otherwise, find the next module automatically:
 1. **First priority**: any module with status `in_progress` (resume interrupted session). If multiple exist, pick the one with the lowest ID.
 2. **Second priority**: the first module with status `not_started`, ordered by ID (1.1 before 1.2 before 2.1).
-3. **If all modules are completed**: congratulate the user on completing the entire curriculum. Suggest `/project:review` for spaced repetition, or `/project:add-content` to extend the curriculum with new modules.
+3. **If all modules are completed**: congratulate the user on completing the entire curriculum. Suggest `/review` for spaced repetition, or `/add-content` to extend the curriculum with new modules.
 
 ---
 
@@ -50,7 +50,7 @@ Otherwise, find the next module automatically:
 2. Determine the module's content file path. The module content lives in `docs-site/docs/`. Use the module ID and Glob to find the file matching `docs-site/docs/*/X.Y-*.md` where X.Y is the module ID.
 3. Read the module content file.
 
-If the file cannot be found, report the error and suggest the user run `/project:init` to regenerate, or check that the module ID is correct.
+If the file cannot be found, report the error and suggest the user run `/init` to regenerate, or check that the module ID is correct.
 
 ---
 
@@ -103,7 +103,7 @@ After completing the module, tell the user:
 1. **What they just completed** — module title and ID
 2. **Next module** — identify the next `not_started` module by ID order. Show its title, type, and estimated time.
 3. **Commands available**:
-   - `/project:start` — continue to the next module
-   - `/project:progress` — see overall completion status
-   - `/project:review` — review previously completed modules (if any are due)
-4. **If this was the last module**, congratulate them on completing the curriculum and suggest `/project:review` for retention.
+   - `/start` — continue to the next module
+   - `/progress` — see overall completion status
+   - `/review` — review previously completed modules (if any are due)
+4. **If this was the last module**, congratulate them on completing the curriculum and suggest `/review` for retention.

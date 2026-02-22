@@ -8,4 +8,4 @@ Read the module content at `docs-site/docs/02-meet-claude-code/2.4-tools-and-per
 4. Read both reference files in `.claude/skills/training-delivery/reference/` if they exist.
 5. Deliver the module content following the training delivery skill's procedures.
 6. On completion, update `progress.json`: set status to `completed`, set `completed_at` to the current ISO 8601 timestamp.
-7. Suggest next steps: the next module in sequence, or `/project:progress` to check overall status.
+7. Suggest next steps: the next module in sequence, or `/progress` to check overall status.

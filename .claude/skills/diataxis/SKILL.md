@@ -1,6 +1,6 @@
 # Diataxis Framework — Classifier and Writer
 
-The Diataxis framework organises documentation into four types based on two axes. This skill provides the classification system and writing guidelines for each type. Use it when generating module content during `/project:init` and when classifying existing content.
+The Diataxis framework organises documentation into four types based on two axes. This skill provides the classification system and writing guidelines for each type. Use it when generating module content during `/init` and when classifying existing content.
 
 ## The Compass
 
@@ -185,7 +185,7 @@ Given a piece of content to classify:
 
 ## Using This Skill During Content Generation
 
-When generating module content for `/project:init`:
+When generating module content for `/init`:
 
 1. **Determine the diataxis type** based on the module's learning objective and position in the curriculum.
 2. **Read the appropriate section** of this skill for writing guidelines.

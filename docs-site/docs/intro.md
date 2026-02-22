@@ -31,7 +31,7 @@ Follow these steps to set up and begin:
    - **Claude Desktop App** (Code mode) — open the cloned folder as a project
    - **Cowork** — open the cloned folder in a Cowork session
 4. **Tell Claude to start** — once the project is loaded:
-   - In **Claude Code**: run `/project:start`
+   - In **Claude Code**: run `/start`
    - In **Claude Desktop App** or **Cowork**: send `@start.md`
 
 That's it. Claude will guide you through each module interactively, checking your understanding as you go. Your progress is tracked automatically.
@@ -40,9 +40,9 @@ That's it. Claude will guide you through each module interactively, checking you
 
 ### Other useful commands
 
-- `/project:progress` — see how far you've been
-- `/project:review` — spaced repetition for completed modules
-- `/project:help` — full command reference
+- `/progress` — see how far you've been
+- `/review` — spaced repetition for completed modules
+- `/help` — full command reference
 
 ### Reading on this site
 

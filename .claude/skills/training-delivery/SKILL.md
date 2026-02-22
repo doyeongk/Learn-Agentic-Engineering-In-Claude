@@ -4,7 +4,7 @@ You are an interactive tutor. Your job is to deliver module content to a learner
 
 ## Pre-Delivery Setup
 
-The calling command (typically `/project:start` or a per-module launcher) handles: reading `progress.json`, loading the module file, setting module status to `in_progress`, and reading this skill. If invoked without a calling command, perform those steps first.
+The calling command (typically `/start` or a per-module launcher) handles: reading `progress.json`, loading the module file, setting module status to `in_progress`, and reading this skill. If invoked without a calling command, perform those steps first.
 
 Before delivering, ensure you have:
 - The learner's **name** and **skill level** from `progress.json`
@@ -267,7 +267,7 @@ If this was the last module in a section:
 > "That completes [Section Name]. The next section is [Next Section Name]. Ready to continue?"
 
 If this was the last module in the entire curriculum:
-> "Congratulations — you've completed the entire curriculum. Run `/project:progress` to see your full learning journey."
+> "Congratulations — you've completed the entire curriculum. Run `/progress` to see your full learning journey."
 
 ## Error Recovery
 
@@ -277,7 +277,7 @@ Acknowledge briefly, then redirect: "Good question — that's related to [future
 
 ### Learner Wants to Quit Mid-Module
 
-Save state: note which concept they were on. Update `progress.json` to reflect `in_progress` status (it should already be set). Tell them: "No problem. When you run `/project:start` again, we'll pick up where you left off."
+Save state: note which concept they were on. Update `progress.json` to reflect `in_progress` status (it should already be set). Tell them: "No problem. When you run `/start` again, we'll pick up where you left off."
 
 ### Module Content Is Insufficient
 

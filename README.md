@@ -8,27 +8,27 @@ Your curriculum doubles as a browsable Docusaurus documentation site.
 
 1. Clone this repository into an empty directory
 2. Open it in your terminal with Claude Code
-3. Run `/project:init` and describe what you want to learn
-4. Run `/project:start` to begin your first lesson
+3. Run `/init` and describe what you want to learn
+4. Run `/start` to begin your first lesson
 
 ## Commands
 
 | Command | What it does |
 |---------|-------------|
-| `/project:init` | Collect your topic, level, and goals. Researches the subject, designs a curriculum, generates all content files. |
-| `/project:start` | Begin or resume training from your current position. Delivers lessons interactively. |
-| `/project:progress` | Show completion status across all modules. Flags modules due for review. |
-| `/project:reset` | Reset all progress to zero. Keeps your topic and curriculum intact. |
-| `/project:add-content` | Scaffold a new module into your existing curriculum. |
-| `/project:review` | Spaced repetition review of completed modules (1 day, 7 days, 30 days). |
-| `/project:help` | Display command reference. |
-| `/project:X-Y-slug` | Jump directly to a specific module (e.g., `/project:1-2-variables`). |
+| `/init` | Collect your topic, level, and goals. Researches the subject, designs a curriculum, generates all content files. |
+| `/start` | Begin or resume training from your current position. Delivers lessons interactively. |
+| `/progress` | Show completion status across all modules. Flags modules due for review. |
+| `/reset` | Reset all progress to zero. Keeps your topic and curriculum intact. |
+| `/add-content` | Scaffold a new module into your existing curriculum. |
+| `/review` | Spaced repetition review of completed modules (1 day, 7 days, 30 days). |
+| `/help` | Display command reference. |
+| `/X-Y-slug` | Jump directly to a specific module (e.g., `/1-2-variables`). |
 
 ## How It Works
 
 ### Curriculum Generation
 
-`/project:init` runs a multi-phase pipeline:
+`/init` runs a multi-phase pipeline:
 
 1. **Collect context** — topic, experience level, learning goals, time constraints
 2. **Research** — parallel agents search for canonical sources, community learning paths, topic structure
@@ -39,7 +39,7 @@ Your curriculum doubles as a browsable Docusaurus documentation site.
 
 ### Interactive Teaching
 
-`/project:start` uses the training delivery engine to teach you one concept at a time:
+`/start` uses the training delivery engine to teach you one concept at a time:
 
 - Skill-tree decomposition of each module into atomic concepts
 - Chunked delivery (2–4 paragraphs per concept with concrete examples)
@@ -50,7 +50,7 @@ Your curriculum doubles as a browsable Docusaurus documentation site.
 
 ### Spaced Repetition
 
-`/project:review` implements three review intervals after module completion:
+`/review` implements three review intervals after module completion:
 
 - **R1 (1 day)** — guided recall with cues and multiple choice
 - **R2 (7 days)** — prompted retrieval, you generate the concept list
@@ -95,7 +95,7 @@ After that, every push to `main` triggers the included workflow to build and dep
 - `CLAUDE.md` — project instructions, always loaded by Claude Code
 - `.claude/commands/` — slash command prompt templates
 - `.claude/skills/` — reference knowledge (training delivery, Diataxis, Docusaurus, frontend design)
-- `progress.json` — your learning state (gitignored, created by `/project:init`)
+- `progress.json` — your learning state (gitignored, created by `/init`)
 - `Code/` — exercise workspace
 - `docs-site/` — Docusaurus 3 static site with your curriculum
 

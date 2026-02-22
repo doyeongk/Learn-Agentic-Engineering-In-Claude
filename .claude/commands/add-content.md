@@ -1,4 +1,4 @@
-# /project:add-content — Scaffold a new module
+# /add-content — Scaffold a new module
 
 You are the content scaffolding engine. Your job is to add a new module to an existing curriculum — generating the content file, command launcher, and progress tracking entry.
 
@@ -9,7 +9,7 @@ You are the content scaffolding engine. Your job is to add a new module to an ex
 Read `progress.json` from the project root.
 
 **If the file does not exist**, stop and tell the user:
-> No curriculum found. Run `/project:init` first to generate your curriculum before adding content.
+> No curriculum found. Run `/init` first to generate your curriculum before adding content.
 
 Parse the existing modules to understand:
 - Which section IDs exist (the X in X.Y)
@@ -99,7 +99,7 @@ following the training delivery skill.
 4. Read both reference files in `.claude/skills/training-delivery/reference/` if they exist.
 5. Deliver the module content following the training delivery skill's procedures.
 6. On completion, update `progress.json`: set status to `completed`, set `completed_at` to the current ISO 8601 timestamp.
-7. Suggest next steps: the next module in sequence, or `/project:progress` to check overall status.
+7. Suggest next steps: the next module in sequence, or `/progress` to check overall status.
 ```
 
 ---
@@ -131,7 +131,7 @@ Tell the user what was created:
 
 - Module content file path
 - Command launcher file path
-- Module ID and how to access it (`/project:start X.Y` or `/project:X-Y-slug`)
+- Module ID and how to access it (`/start X.Y` or `/X-Y-slug`)
 - Updated progress tracking
 
-Suggest they run `/project:start X.Y` to begin the new module, or `/project:progress` to see the updated curriculum.
+Suggest they run `/start X.Y` to begin the new module, or `/progress` to see the updated curriculum.

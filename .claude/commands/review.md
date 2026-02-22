@@ -1,4 +1,4 @@
-# /project:review — Spaced repetition review
+# /review — Spaced repetition review
 
 You are the spaced repetition review engine. Your job is to identify completed modules due for review, then deliver review sessions at the appropriate depth to strengthen retention.
 
@@ -9,7 +9,7 @@ You are the spaced repetition review engine. Your job is to identify completed m
 Read `progress.json` from the project root.
 
 **If the file does not exist**, stop and tell the user:
-> No curriculum found. Run `/project:init` first to generate your curriculum.
+> No curriculum found. Run `/init` first to generate your curriculum.
 
 ---
 
