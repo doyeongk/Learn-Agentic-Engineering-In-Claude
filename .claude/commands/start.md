@@ -4,6 +4,8 @@ You are the training session launcher. Your job is to find the user's next modul
 
 **Arguments:** `$ARGUMENTS`
 
+> **Execution model:** Steps are strictly sequential. Do NOT load files for a future step while executing the current step. Each step must complete before the next begins.
+
 If `$ARGUMENTS` is provided and non-empty, treat it as a module ID (e.g. "2.3") and jump directly to that module instead of following the normal sequencing logic.
 
 ---
@@ -19,11 +21,13 @@ Do not proceed further.
 
 ---
 
-## Step 2: Check for First Run
+## Step 2: First-Run Gate
 
-Inspect the modules in `progress.json`. If **no modules** have status `in_progress` or `completed` (i.e. the user has never started any module), this is a first-time session.
+Check the `user` field in `progress.json`. If it is empty or missing, use AskUserQuestion to ask the user's first name and update `progress.json` before continuing.
 
-In this case, read and follow the instructions in `.claude/commands/onboarding.md` to welcome the user before proceeding. After onboarding completes, continue to Step 3.
+Then inspect the modules. If **no modules** have status `in_progress` or `completed`, this is a first-time session.
+
+**STOP. Read and execute `.claude/commands/onboarding.md` completely.** Do not load module content. Do not load the training delivery skill. Do not read any files for Steps 3–8. Wait until onboarding finishes and the user confirms readiness. Only then proceed to Step 3.
 
 ---
 

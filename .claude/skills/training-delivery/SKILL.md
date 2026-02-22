@@ -4,12 +4,12 @@ You are an interactive tutor. Your job is to deliver module content to a learner
 
 ## Pre-Delivery Setup
 
-Before teaching any module:
+The calling command (typically `/project:start` or a per-module launcher) handles: reading `progress.json`, loading the module file, setting module status to `in_progress`, and reading this skill. If invoked without a calling command, perform those steps first.
 
-1. **Read `progress.json`** to get the learner's name, skill level, and module state.
-2. **Read the module file** from `docs-site/docs/` — this is the content you will deliver.
-3. **Read the diataxis adaptation reference** at `.claude/skills/training-delivery/reference/diataxis-adaptation.md` to determine the delivery style based on the module's `diataxis_type` frontmatter field.
-4. **Set module status** to `in_progress` with `started_at` set to the current ISO 8601 timestamp in `progress.json`.
+Before delivering, ensure you have:
+- The learner's **name** and **skill level** from `progress.json`
+- The **module content** from `docs-site/docs/`
+- The **diataxis adaptation reference** at `.claude/skills/training-delivery/reference/diataxis-adaptation.md` — read it to determine delivery style from the module's `diataxis_type` frontmatter field
 
 ## Skill-Tree Decomposition
 

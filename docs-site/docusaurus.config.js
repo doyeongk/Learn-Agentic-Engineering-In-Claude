@@ -59,7 +59,7 @@ const config = {
             label: 'Curriculum',
           },
           {
-            href: 'https://github.com/doyeongk/Learn-Anything-In-Claude',
+            href: 'https://github.com/doyeongk/Learn-Agentic-Engineering-In-Claude',
             label: 'GitHub',
             position: 'right',
           },
@@ -67,7 +67,7 @@ const config = {
       },
       footer: {
         style: 'light',
-        copyright: 'Built with <a href="https://github.com/doyeongk/Learn-Anything-In-Claude">Learn Anything In Claude</a>',
+        copyright: 'Built with <a href="https://github.com/doyeongk/Learn-Agentic-Engineering-In-Claude">Learn Agentic Engineering In Claude</a>',
       },
       prism: {
         theme: prismThemes.github,

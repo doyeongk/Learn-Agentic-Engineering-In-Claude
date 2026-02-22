@@ -17,22 +17,36 @@ By the end of this curriculum, you'll be able to:
 - **Engineer context** — write CLAUDE.md files that shape Claude's behaviour, manage the attention budget, and keep sessions effective
 - **Build skills and subagents** — create reusable knowledge packs and orchestrate parallel AI workers to tackle complex tasks
 
-## How to navigate
+## Getting started
 
-There are two ways to work through the modules:
+Follow these steps to set up and begin:
 
-### In Claude Code (recommended)
+1. **Go to GitHub** — navigate to [github.com](https://github.com) and sign up for a free account if you don't already have one
+2. **Clone this repository** — copy the repo to your local machine using the green "Code" button on the repo page, or run:
+   ```bash
+   git clone https://github.com/doyeongk/Learn-Agentic-Engineering-In-Claude.git
+   ```
+3. **Open the folder in Claude** — pick whichever interface suits you:
+   - **Claude Code** (terminal) — `cd Learn-Agentic-Engineering-In-Claude` and launch Claude Code
+   - **Claude Desktop App** (Code mode) — open the cloned folder as a project
+   - **Cowork** — open the cloned folder in a Cowork session
+4. **Tell Claude to start** — once the project is loaded:
+   - In **Claude Code**: run `/project:start`
+   - In **Claude Desktop App** or **Cowork**: send `@start.md`
 
-Run `/project:start` to begin. Claude will guide you through each module interactively, checking your understanding as you go. Your progress is tracked automatically.
+That's it. Claude will guide you through each module interactively, checking your understanding as you go. Your progress is tracked automatically.
 
-Other commands:
+> If any of this is confusing, copy-paste this whole page into [claude.ai](https://claude.ai) and ask it to explain.
+
+### Other useful commands
+
 - `/project:progress` — see how far you've been
 - `/project:review` — spaced repetition for completed modules
 - `/project:help` — full command reference
 
-### On this site
+### Reading on this site
 
-Browse the sidebar to read any module directly. The curriculum is structured in four sections, meant to be followed in order:
+You can also browse the sidebar to read any module directly. The curriculum is structured in four sections, meant to be followed in order:
 
 1. **[Why GitHub Exists](./01-why-github-exists/1.1-the-problem-github-solves.md)** — version control fundamentals
 2. **[Meet Claude Code](./02-meet-claude-code/2.1-from-chat-to-agent.md)** — the agent paradigm

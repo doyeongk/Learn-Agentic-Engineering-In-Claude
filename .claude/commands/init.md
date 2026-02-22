@@ -10,13 +10,14 @@ If `progress.json` already exists in the project root, warn the user that reinit
 
 Use a **single** AskUserQuestion call to gather all of the following. Format the question clearly with numbered items so the user can answer everything at once:
 
-1. **Topic** — What do you want to learn? (e.g. "Rust programming", "Kubernetes", "Music theory")
-2. **Current experience level** — beginner / intermediate / advanced
-3. **Learning goal** — What specifically do you want to be able to do after completing this curriculum? (e.g. "Build a web server in Rust", "Deploy production clusters")
-4. **Time constraints** — How much time can you dedicate? (e.g. "30 minutes a day", "2 hours on weekends", "no constraint")
-5. **Existing materials** — Are there any specific books, courses, or resources you want incorporated? (or "none")
+1. **Name** — What should we call you? (first name is fine)
+2. **Topic** — What do you want to learn? (e.g. "Rust programming", "Kubernetes", "Music theory")
+3. **Current experience level** — beginner / intermediate / advanced
+4. **Learning goal** — What specifically do you want to be able to do after completing this curriculum? (e.g. "Build a web server in Rust", "Deploy production clusters")
+5. **Time constraints** — How much time can you dedicate? (e.g. "30 minutes a day", "2 hours on weekends", "no constraint")
+6. **Existing materials** — Are there any specific books, courses, or resources you want incorporated? (or "none")
 
-Parse the user's response and extract structured values for: `topic`, `skill_level`, `goal`, `time_constraint`, and any referenced materials.
+Parse the user's response and extract structured values for: `user` (name), `topic`, `skill_level`, `goal`, `time_constraint`, and any referenced materials.
 
 ---
 
@@ -168,7 +169,7 @@ After curriculum approval, use the **Task** tool to launch **parallel subagents*
 1. Read `progress.template.json` from the project root.
 2. Create `progress.json` in the project root with:
    - `version`: 1
-   - `user`: the user's name (ask if not already collected — can be first name only)
+   - `user`: the user's name (collected in Phase 1)
    - `started`: current ISO 8601 timestamp
    - `topic`: the topic they're learning
    - `goal`: their stated goal

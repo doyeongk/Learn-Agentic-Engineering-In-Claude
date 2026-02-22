@@ -8,9 +8,11 @@ You are the onboarding guide. This command is called internally by `/project:sta
 
 Read `progress.json` from the project root.
 
-Extract the user's name (`user` field) and topic (`topic` field).
-
 If `progress.json` doesn't exist, stop and tell the user to run `/project:init` first.
+
+Extract the `user` field and `topic` field.
+
+**If `user` is empty, blank, or missing:** Use AskUserQuestion to ask: "What should we call you? (first name is fine)". Update the `user` field in `progress.json` with their answer before continuing. Do NOT proceed to Step 2 until you have the user's name.
 
 ---
 

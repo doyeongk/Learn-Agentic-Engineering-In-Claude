@@ -113,9 +113,12 @@ Every piece of documentation can be located on a 2x2 grid by answering two quest
 1. State the question or topic being explored
 2. Provide context: why this matters, where it came from
 3. Explain the core mechanism or principle
-4. Consider alternatives: other approaches, historical choices, trade-offs
-5. Connect to the broader system: how this fits into the larger picture
-6. Summarise the key insight
+4. Consider alternatives: other approaches, historical choices, trade-offs (when genuine alternatives exist)
+5. Address misconceptions (only when genuinely surprising or non-obvious ones exist — omit if contrived)
+6. Connect to the broader system (only when connections are non-obvious)
+7. Summarise the key insight
+
+**Section flexibility:** Not every explanation needs every section. Trade-offs, Common Misconceptions, and Connections are optional. Include them when they earn their place — omit them when they would be filler. The goal is to change how the reader thinks, not to tick structural boxes.
 
 **Writing rules:**
 - Discursive, exploratory tone. Use "because" and "therefore" frequently. These are the words of explanation.

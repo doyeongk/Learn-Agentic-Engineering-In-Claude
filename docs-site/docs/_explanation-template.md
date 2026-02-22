@@ -23,15 +23,15 @@ diataxis_type: explanation
 
 ## Trade-offs and Alternatives
 
-[Discuss why things are the way they are. What alternatives exist? What are the trade-offs? This is where explanation shines — the "why" behind decisions.]
+[Discuss why things are the way they are. What alternatives exist? What are the trade-offs? This is where explanation shines — the "why" behind decisions. Include only when genuine alternatives or trade-offs exist.]
 
 ## Common Misconceptions
 
-[Address 2-3 common misunderstandings about this topic. For each: state the misconception, explain why it's wrong, provide the correct understanding.]
+[OPTIONAL — include only when there are genuinely surprising or non-obvious misconceptions that the reader is likely to hold. Omit if the concept is straightforward or if the misconceptions would be contrived. When included, each entry should correct a belief the reader probably walked in with.]
 
 ## Connections
 
-[How does this topic relate to other concepts in the curriculum? Where does this understanding become practically useful?]
+[OPTIONAL — include only when the connections are non-obvious or when the module sits at a junction between concepts. Omit for modules where the relationship to the rest of the curriculum is self-evident.]
 
 ## Knowledge Check
 
